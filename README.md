@@ -1,6 +1,4 @@
-## Crew Management System - Frontend
-
-#### Technical Examination 2
+## Lion King Realty - Frontend
 
 #### Run 'npm install' and then 'npm run dev' in order to run in the local environment.
 #### The default page will be the login page and if you want to make an admin account, just go to localhost:3000/create-admin-user.
