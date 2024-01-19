@@ -1,5 +1,6 @@
 import { Space, Form, Select, DatePicker } from 'antd';
 import React, { useState, useEffect } from "react";
+import moment from 'moment';
 
 export default function ClientForm({
     children,
@@ -16,11 +17,25 @@ export default function ClientForm({
     const initComponents = async () => {
         setButtonText('Save Changes');
         const { client } = await getClient(selectedItemForEdit);
+        let db = client.contact.date_bought;
+        if(db) {
+            db = moment(db, 'YYYY-MM-DD');
+        } else {
+            db = null;
+        }
         form.setFieldsValue({
             first_name: client.first_name,
             last_name: client.last_name,
             middle_name: client.middle_name,
             extension_name: client.extension_name,
+            address: client.contact.address,
+            mobile: client.contact.mobile,
+            area_id: client.contact.area_id,
+            block: client.contact.block,
+            lot: client.contact.lot,
+            price: client.contact.price,
+            measure: client.contact.measure,
+            date_bought: db,
         });
     }
 

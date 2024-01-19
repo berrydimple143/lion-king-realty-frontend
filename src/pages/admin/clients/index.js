@@ -65,8 +65,7 @@ export default function Client({info, clients, areas })
             setShowCanvas(true);
         },
         onAfterPrint: () => {
-            // saveTransactionInfo();
-            // handlePrinterBack();
+
         },
     });
 
@@ -86,6 +85,7 @@ export default function Client({info, clients, areas })
         } else if(mode == 'edit') {
             values.id = selectedItemForEdit;
             const { client } = await updateClient(values);
+            console.log(client);
             resetInput();
             if(client == 1) {
                 message.success("Client updated successfully.");
